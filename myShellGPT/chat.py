@@ -61,7 +61,7 @@ def chat(query):
             delHistory()
 
     except Exception as e:
-        if e.status_code is not None and e.status_code == 429:
+        if hasattr(e,'status_code')  and e.status_code == 429:
             # print("loading.....")
             sleep(50)
             result= chat(query)
