@@ -1,12 +1,14 @@
 from time import sleep
-
 from openai import OpenAI
-module_type= "dialog"
-client = OpenAI(
-    api_key="sk-bYyvQmVrGmW4tZ61TGDfRxZVVoeHozROaZF4UGGGjcwixcra",
-    base_url="https://api.moonshot.cn/v1",
-)
 
+from models import get_cur_model, cur_model_name, get_cur_model_name, get_cur_model_type
+
+last_model_name=cur_model_name
+model=get_cur_model()
+client = OpenAI(
+    api_key=model["api_key"],
+    base_url=model["base_url"],
+)
 history_dict={
     "shell":[
     {"role": "system",
@@ -14,15 +16,28 @@ history_dict={
 ],
     "dialog":[
     {"role": "system",
-     "content":"你是KIMI，我的智能助手，你需要根据我的输入给出中文回复。"}
+     "content":"你是我的智能助手，你需要根据我的输入给出中文回复。"}
 ]
 }
 
 def delHistory():
-    history_dict[module_type]= history_dict[module_type][0:1] + history_dict[module_type][-20:]
-    print(history_dict[module_type])
+    model_type=get_cur_model_type()
+    history_dict[model_type]= history_dict[model_type][0:1] + history_dict[model_type][-20:]
+    print(history_dict[model_type])
 def chat(query):
-    history=history_dict[module_type]
+    model_type = get_cur_model_type()
+    model_name=get_cur_model_name()
+    global client, model,last_model_name
+    if model_name != last_model_name:
+        model = get_cur_model()
+
+        client=OpenAI(
+            api_key=model["api_key"],
+            base_url=model["base_url"],
+        )
+        last_model_name=model_name
+
+    history=history_dict[model_type]
     if query=="":
         query+=" "
     try:
@@ -31,7 +46,7 @@ def chat(query):
             "content": query
         })
         completion = client.chat.completions.create(
-            model="moonshot-v1-8k",
+            model=model['model'],
             messages=history,
             temperature=0.3,
         )
@@ -44,7 +59,6 @@ def chat(query):
             delHistory()
 
     except Exception as e:
-
         if e.status_code is not None and e.status_code == 429:
             # print("loading.....")
             sleep(50)
