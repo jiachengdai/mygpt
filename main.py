@@ -1,22 +1,25 @@
-import kimi
-from kimi import chat
+from utils import response_print
 import os
+from modules import set_cur_module,cur_module,change_module_type
+
 last_command=""
-def change_type(type):
-    kimi.cur_type=type
+def change_type(module_type):
+    change_module_type(module_type)
 while True:
 
-    query_sts=input("("+kimi.cur_type+")>>>")
-    if query_sts.startswith("--"):
-        change_type(query_sts[2:])
-
+    query_sts=input("("+cur_module.module_type+")>>>")
+    if query_sts.startswith("--type"):
+        change_type(query_sts[7:])
+    elif query_sts.startswith("--model"):
+        set_cur_module(query_sts[8:])
     else:
         if query_sts=="e":
             os.system(last_command)
             last_command=""
         else:
-            response=chat(query_sts)
-            if kimi.cur_type=="shell":
+            response=cur_module.chat(query_sts)
+            if cur_module.module_type=="shell":
                 last_command=response
-            print(response)
+            response_print(response)
+
 
