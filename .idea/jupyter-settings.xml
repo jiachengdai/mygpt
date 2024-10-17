@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JupyterPersistentConnectionParameters">
+    <option name="knownRemoteServers">
+      <list>
+        <JupyterConnectionParameters>
+          <option name="authType" value="notebook" />
+          <option name="token" value="3915b4536c4ff32bcc2fa28b8d46ac589dd1e579e7d80f8d" />
+          <option name="urlString" value="http://127.0.0.1:8888/" />
+          <authParams2>
+            <map>
+              <entry key="token" value="3915b4536c4ff32bcc2fa28b8d46ac589dd1e579e7d80f8d" />
+            </map>
+          </authParams2>
+        </JupyterConnectionParameters>
+        <JupyterConnectionParameters>
+          <option name="authType" value="notebook" />
+          <option name="token" value="dfbac1e88b79ea8aa4c415e26bd6efdf3888155b47708e4a" />
+          <option name="urlString" value="http://localhost:8888/" />
+          <authParams2>
+            <map>
+              <entry key="token" value="dfbac1e88b79ea8aa4c415e26bd6efdf3888155b47708e4a" />
+            </map>
+          </authParams2>
+        </JupyterConnectionParameters>
+      </list>
+    </option>
+    <option name="moduleParameters">
+      <map>
+        <entry key="$PROJECT_DIR$/../../../../2023年秋季学期课程/人工智能 肖黎丽/AI/.idea/AI.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="authType" value="notebook" />
+              <option name="token" value="3915b4536c4ff32bcc2fa28b8d46ac589dd1e579e7d80f8d" />
+              <option name="urlString" value="http://127.0.0.1:8888/" />
+              <authParams2>
+                <map>
+                  <entry key="token" value="3915b4536c4ff32bcc2fa28b8d46ac589dd1e579e7d80f8d" />
+                </map>
+              </authParams2>
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../2023年秋季学期课程/人工智能 肖黎丽/pythonProject/.idea/pythonProject.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="authType" value="notebook" />
+              <option name="token" value="dfbac1e88b79ea8aa4c415e26bd6efdf3888155b47708e4a" />
+              <option name="urlString" value="http://localhost:8888/" />
+              <authParams2>
+                <map>
+                  <entry key="token" value="dfbac1e88b79ea8aa4c415e26bd6efdf3888155b47708e4a" />
+                </map>
+              </authParams2>
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

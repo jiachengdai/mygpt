@@ -5,7 +5,7 @@ models = {"chat-gpt": {"base_url": 'https://free.gpt.ge/v1/',
                    "api_key": 'sk-bYyvQmVrGmW4tZ61TGDfRxZVVoeHozROaZF4UGGGjcwixcra', "model": "moonshot-v1-8k"}
           }
 # 所有可用的对话类型
-model_types = ["shell", "dialog"]
+model_types = ["shell", "dialog","code"]
 
 
 # 当前使用模型的名称、类型、ＡＰＩ信息
