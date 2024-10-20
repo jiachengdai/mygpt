@@ -1,5 +1,5 @@
 from chat import chat, addRole
-from myShellGPT import utils
+import utils
 from utils import response_print
 import os
 from models import set_cur_model, change_model_type, get_cur_model_type

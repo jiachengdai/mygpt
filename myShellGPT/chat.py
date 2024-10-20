@@ -1,7 +1,7 @@
 from time import sleep
 from openai import OpenAI
 from models import get_cur_model, get_cur_model_name, get_cur_model_type,model_types
-from myShellGPT import utils
+import utils
 
 last_model_name=get_cur_model_name()
 model=get_cur_model()
