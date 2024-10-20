@@ -20,7 +20,7 @@ history_dict={
      "content":"你是我的智能助手，你需要根据我的输入给出中文回复。"}],
     "code":[
     {"role":"system",
-     "content":'你现在是一个精通多种编程语言的代码高手，请根据我的提示输出代码，默认语言为python，如果我另外指定了语言，请使用它，请在代码第一行中注释体现语言类型，请仅包含代码内容，不要输出语言描述以及"""等Markdown的包裹'}]
+     "content":'你现在是一个精通多种编程语言的代码高手，请根据我的提示输出代码，默认语言为python，如果我另外指定了语言，请使用它，请在代码第一行中注释体现语言类型，请仅包含代码内容，务必不要输出语言描述以及"""等Markdown的包裹'}]
 
 }
 def addRole(role_name,role_settings):
@@ -29,7 +29,7 @@ def addRole(role_name,role_settings):
         setting_dict=[{"role":"system","content":role_settings}]
         history_dict[role_name]=setting_dict
         model_types.append(role_name)
-        utils.response_print("角色设定成功，键入--[role name]以切换角色")
+        utils.response_print("角色设定成功，键入--type [role name]以切换角色")
     else:
         print("\033[1;31m角色" + role_name + "已存在，请重新设定\033[0m")
 
