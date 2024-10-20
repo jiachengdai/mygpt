@@ -23,8 +23,10 @@
 
 #### 3. GPT助手启动，默认为dialog 聊天模式
   <img src="imgs/img_7.png" alt="img_7.png" style="zoom: 67%;" />
+
 #### 4. 直接在提示符后输入，键入回车进行聊天
    <img src="imgs/img_1.png" alt="img_1.png" style="zoom:67%;" />
+
 #### 5. 模型切换
 
 这里内置了两种模型： Kimi 和 ChatGPT3.5
@@ -68,6 +70,7 @@ ps: model_name 可选 chat-gpt or kimi
    这个角色可以生成shell命令，当返回结果后，键入e可以执行shell命令
 
    <img src="imgs/img_6.png" alt="img_6.png" style="zoom:50%;" />
+
 #### 9. 添加新角色
    这里允许用户 添加新角色以适配自己的需求，这里以添加新身份“诗词高手”为例：
 
@@ -79,6 +82,7 @@ ps: model_name 可选 chat-gpt or kimi
    添加角色范例： 
 
    <img src="imgs/img_4.png" alt="img_4.png" style="zoom:50%;" />
+
 #### 10. 终止运行
 
    在LINUX操作系统下，使用Ctrl+Z终止运行
