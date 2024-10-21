@@ -13,23 +13,26 @@ client = OpenAI(
 history_dict={
     "shell":[
     {"role": "system",
-     "content": "你现在是一个Linux的命令助手，需要根据我提供的场景，返回特定的Linux命令，注意不要有其他内容，如果你认为场景模糊不清或有多种可能的结果，请返回最有可能的哪一种结果。总之就是不要输出除了命令之外的内容，也就是仅仅返回指令的字符串格式"}
+     "content": """只提供Linux的shell命令，不提供任何描述。如果缺乏细节，提供最合乎逻辑的解决方案。确保输出是有效的shell
+     命令。如果需要多个步骤，尝试使用&&将它们组合在一起。只提供纯文本，没有Markdown格式。不要提供像```这样的markdown格式。"""}
 ],
     "dialog":[
     {"role": "system",
      "content":"你是我的智能助手，你需要根据我的输入给出中文回复。"}],
     "code":[
     {"role":"system",
-     "content":'你现在是一个精通多种编程语言的代码高手，请根据我的提示输出代码，默认语言为python，如果我另外指定了语言，请使用它，请在代码第一行中注释体现语言类型，请仅包含代码内容，务必不要输出语言描述以及"""等Markdown的包裹'}]
+     "content":"""你现在是一个精通多种编程语言的代码高手，只提供代码作为输出，不提供任何描述。只提供纯文本格式的代码，没有Markdown格式。不要包含诸如```或’ ‘ python 
+     ’之类的符号。如果缺乏细节，提供最合乎逻辑的解决方案。你不能问更多的细节。例如，如果提示符是“Hello world Python”，你应该返回“print('Hello 
+     world")”。如果指定了语言请使用他，没指定请使用Python语言 """}]
 
 }
 def addRole(role_name,role_settings):
-
+    role_name=role_name.strip()
     if history_dict.get(role_name) is None:
         setting_dict=[{"role":"system","content":role_settings}]
         history_dict[role_name]=setting_dict
         model_types.append(role_name)
-        utils.response_print("角色设定成功，键入--type [role name]以切换角色")
+        utils.response_print("角色设定成功，键入--role [role name]以切换角色")
     else:
         print("\033[1;31m角色" + role_name + "已存在，请重新设定\033[0m")
 

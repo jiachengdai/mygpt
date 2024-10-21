@@ -15,6 +15,7 @@ cur_model_type = "dialog"
 
 
 def set_cur_model(model_name):
+    model_name=model_name.strip()
     global cur_model_name, cur_model
     if model_name not in models.keys():
         print("\033[1;31mNo model named " + model_name + ", default chat-gpt\033[0m")
@@ -24,6 +25,7 @@ def set_cur_model(model_name):
 
 
 def change_model_type(type_name):
+    type_name=type_name.strip()
     global cur_model_type
     if type_name not in model_types:
         print("\033[1;31mNo type named " + type_name + ", default dialog \033[0m")

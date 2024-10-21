@@ -54,11 +54,12 @@ ps: model_name 可选 chat-gpt or kimi
 
    切换角色使用命令：
    ```shell
-   (dialog)>>> --type [role_name]
+   (dialog)>>> --role [role_name]
    ps: role_name可选: dialog or shell or code
    ```
 如：
-  <img src="imgs/img_3.png" alt="img_3.png" style="zoom:67%;" /> 
+
+  <img src="imgs/img_role.png" alt="img_role.png" style="zoom:67%;" /> 
 
 #### 7. 关于角色code
    这个角色可以用于生成代码，同时代码可以保存到本地
