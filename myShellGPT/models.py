@@ -1,17 +1,18 @@
 import os
 # 所有可用模型的ＡＰＩ，ＵＲＬ，以及模型引擎名
+#  展示用：
 #  chat-gpt :  'sk-nHslw5xXWtKWcZoS695989Aa3eD94929930f7d364d351dF0'
 #  kimi :  'sk-bYyvQmVrGmW4tZ61TGDfRxZVVoeHozROaZF4UGGGjcwixcra'
 
 models = {
     "chat-gpt": {
         "base_url": os.getenv('CHAT_GPT_BASE_URL', 'https://free.gpt.ge/v1/'),
-        "api_key": os.getenv('CHAT_GPT_API_KEY', 'sk-nHslw5xXWtKWcZoS695989Aa3eD94929930f7d364d351dF0'),
+        "api_key": os.getenv('CHAT_GPT_API_KEY', ''),
         "model": "gpt-3.5-turbo"
     },
     "kimi": {
         "base_url": os.getenv('KIMI_BASE_URL', 'https://api.moonshot.cn/v1'),
-        "api_key": os.getenv('KIMI_API_KEY', 'sk-bYyvQmVrGmW4tZ61TGDfRxZVVoeHozROaZF4UGGGjcwixcra'),
+        "api_key": os.getenv('KIMI_API_KEY', ''),
         "model": "moonshot-v1-8k"
     }
 }
