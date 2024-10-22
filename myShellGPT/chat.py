@@ -58,30 +58,35 @@ def chat(query):
     history=history_dict[model_type]
     if query=="":
         query+=" "
-    try:
-        history.append({
-            "role": "user",
-            "content": query
-        })
-        completion = client.chat.completions.create(
-            model=model['model'],
-            messages=history,
-            temperature=0.3,
-        )
-        result = completion.choices[0].message.content
-        history.append({
-            "role": "assistant",
-            "content": result
-        })
-        if len(history)>=40:
-            delHistory()
-
-    except Exception as e:
-        if hasattr(e,'status_code')  and e.status_code == 429:
-            # print("loading.....")
-            sleep(50)
-            result= chat(query)
-        else:
-            result = "error  "+e.body['message'] if e.body is not None else ""
-    return result
+    retry_count = 0
+    max_retries = 5
+    while retry_count < max_retries:
+        try:
+            history.append({
+                "role": "user",
+                "content": query
+            })
+            completion = client.chat.completions.create(
+                model=model['model'],
+                messages=history,
+                temperature=0.3,
+            )
+            result = completion.choices[0].message.content
+            history.append({
+                "role": "assistant",
+                "content": result
+            })
+            if len(history)>=40:
+                delHistory()
+            return result
+        except Exception as e:
+            retry_count += 1
+            if hasattr(e,'status_code')  and e.status_code == 429:
+                print("请求过于频繁，正在重试({}/{})...".format(retry_count, max_retries))
+                sleep(50)
+            else:
+                error_message = str(e)
+                print("发生错误：{}".format(error_message))
+                return "Error: " + error_message
+    return "请求失败，请稍后重试。"
 
